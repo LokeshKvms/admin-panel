@@ -27,11 +27,19 @@
                             <tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-900 transition">
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">{{ $loop->iteration }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">{{ $category->name }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm flex gap-4 justify-center items-center">
                                     <a href="{{ route('categories.edit', $category) }}" 
                                        class="text-indigo-600 hover:text-indigo-900 font-medium">
                                         Edit
                                     </a>
+                                    <form method="POST" action="{{ route('categories.destroy', $category) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <x-primary-button type="submit" 
+                                                class="text-red-600 hover:text-red-900 font-medium">
+                                            Delete
+                                        </x-primary-button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

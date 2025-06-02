@@ -16,14 +16,6 @@
                             <x-input-label for="name">Category Name</x-input-label><br>
                             <x-text-input name="name" type="text" value="{{ $category->name }}" required/><br>
                             <x-primary-button>Save</x-primary-button>
-                            <form method="POST" action="{{ route('categories.destroy', $category) }}">
-                                @csrf
-                                @method('DELETE')
-                                <x-primary-button type="submit" 
-                                        class="text-red-600 hover:text-red-900 font-medium mt-4">
-                                    Delete
-                                </x-primary-button>
-                            </form>
                         </div>
                     </form>
                 </div>
