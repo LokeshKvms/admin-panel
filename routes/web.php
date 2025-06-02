@@ -26,6 +26,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
     })->name('dashboard');
 
     Route::group(['middleware' => 'is_admin'], function () {
+        
         Route::resource('categories', CategoryController::class)
         ->names('categories');
         
